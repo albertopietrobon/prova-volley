@@ -13,13 +13,25 @@ load_css(css_path)
 col1,col2,col3=st.columns(3,gap="small")
 
 with col1:
-    for i in range (1,8):
+    for i in range (1,4):
       st.button(f"{i}", key=f"butt{i}", use_container_width=True)
+    st.button("block", key=f"butt4", use_container_width=True)
+    for i in range (5,7):
+      st.button(f"{i}", key=f"butt{i}", use_container_width=True)
+    st.button("serve", key=f"butt7", use_container_width=True)
 
 with col2:
-    for i in range (8,15):
+    for i in range (8,11):
       st.button(f"{i}", key=f"butt{i}", use_container_width=True)
+    st.button("block", key=f"butt11", use_container_width=True)
+    for i in range (12,14):
+      st.button(f"{i}", key=f"butt{i}", use_container_width=True)
+    st.button("serve", key=f"butt14", use_container_width=True)
 
 with col3:
-    for i in range (15,22):
+    for i in range (15,18):
       st.button(f"{i}", key=f"butt{i}", use_container_width=True)
+    st.button("block", key=f"butt18", use_container_width=True)
+    for i in range (19,21):
+      st.button(f"{i}", key=f"butt{i}", use_container_width=True)
+    st.button("serve", key=f"butt21", use_container_width=True)

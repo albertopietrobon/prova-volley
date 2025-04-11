@@ -1,3 +1,35 @@
+/* Rimuove spazio tra le colonne */
+[data-testid="stHorizontalBlock"] {
+    gap: 0rem !important;
+    display: flex;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Colonne senza padding */
+[data-testid="column"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+}
+
+
+[data-testid="stVerticalBlock"] {
+    gap: 0rem !important;
+    display: flex;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+
+
+.st-key-save button{
+    margin-top: 10% !important;
+}
+
+
+
 .st-key-butt1 button{
     background-color: #007c80;
     border-radius: 0%;

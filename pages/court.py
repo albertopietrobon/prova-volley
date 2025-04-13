@@ -14,11 +14,11 @@ load_css(css_path)
 if 'step' not in st.session_state:
     st.session_state.step = 0
 
-if 'point_start' not in st.session_state:
-    st.session_state.point_start = 0
+if 'point_att' not in st.session_state:
+    st.session_state.point_att = 0
 
-if 'point_end' not in st.session_state:
-    st.session_state.point_end = 0
+if 'point_def' not in st.session_state:
+    st.session_state.point_def = 0
 
 if 'point_block' not in st.session_state:
     st.session_state.point_block = 0
@@ -26,14 +26,18 @@ if 'point_block' not in st.session_state:
 def click_step(i):
     st.session_state.step = i
 
-def click_start(i):
-    st.session_state.point_start = i
+def click_att(i):
+    st.session_state.point_att = i
+    st.session_state.point_block = 0
 
-def click_end(i):
-    st.session_state.point_end = i
+def click_def(i):
+    st.session_state.point_def = i
+    st.session_state.point_block = 0
 
 def click_block(i):
     st.session_state.point_block = i
+    st.session_state.point_att = 0
+    st.session_state.point_def = 0
 
 def return_set_page():
     st.session_state.step = 0
@@ -47,41 +51,61 @@ if st.session_state.step == 0:
     col1,col2,col3=st.columns(3,gap="small")
 
     with col1:
-        b1 = st.button("1", key="butt1", on_click=click_end,args=[1], use_container_width=True)
-        b2 = st.button("2", key="butt2", on_click=click_end,args=[2], use_container_width=True)
-        b3 = st.button("3", key="butt3", on_click=click_end,args=[3], use_container_width=True)
+        b1 = st.button("1", key="butt1", on_click=click_def,args=[1], use_container_width=True)
+        b2 = st.button("2", key="butt2", on_click=click_def,args=[2], use_container_width=True)
+        b3 = st.button("3", key="butt3", on_click=click_def,args=[3], use_container_width=True)
         b4 = st.button("block", key="butt4", on_click=click_block,args=[4], use_container_width=True)
-        b5 = st.button("5", key="butt5", on_click=click_start,args=[5], use_container_width=True)
-        b6 = st.button("6", key="butt6", on_click=click_start,args=[6], use_container_width=True)
-        b7 = st.button("serve", key="butt7", on_click=click_start,args=[7], use_container_width=True)
+        b5 = st.button("5", key="butt5", on_click=click_att,args=[5], use_container_width=True)
+        b6 = st.button("6", key="butt6", on_click=click_att,args=[6], use_container_width=True)
+        b7 = st.button("serve", key="butt7", on_click=click_att,args=[7], use_container_width=True)
 
     with col2:
-        b8 = st.button("8", key="butt8", on_click=click_end,args=[8], use_container_width=True)
-        b9 = st.button("9", key="butt9", on_click=click_end,args=[9], use_container_width=True)
-        b10 = st.button("10", key="butt10", on_click=click_end,args=[10], use_container_width=True)
+        b8 = st.button("8", key="butt8", on_click=click_def,args=[8], use_container_width=True)
+        b9 = st.button("9", key="butt9", on_click=click_def,args=[9], use_container_width=True)
+        b10 = st.button("10", key="butt10", on_click=click_def,args=[10], use_container_width=True)
         b11 = st.button("block", key="butt11", on_click=click_block,args=[11], use_container_width=True)
-        b12 = st.button("12", key="butt12", on_click=click_start,args=[12], use_container_width=True)
-        b13 = st.button("13", key="butt13", on_click=click_start,args=[13], use_container_width=True)
-        b14 = st.button("serve", key="butt14", on_click=click_start,args=[14], use_container_width=True)
+        b12 = st.button("12", key="butt12", on_click=click_att,args=[12], use_container_width=True)
+        b13 = st.button("13", key="butt13", on_click=click_att,args=[13], use_container_width=True)
+        b14 = st.button("serve", key="butt14", on_click=click_att,args=[14], use_container_width=True)
 
     with col3:
-        b15 = st.button("15", key="butt15", on_click=click_end,args=[15], use_container_width=True)
-        b16 = st.button("16", key="butt16", on_click=click_end,args=[16], use_container_width=True)
-        b17 = st.button("17", key="butt17", on_click=click_end,args=[17], use_container_width=True)
+        b15 = st.button("15", key="butt15", on_click=click_def,args=[15], use_container_width=True)
+        b16 = st.button("16", key="butt16", on_click=click_def,args=[16], use_container_width=True)
+        b17 = st.button("17", key="butt17", on_click=click_def,args=[17], use_container_width=True)
         b18 = st.button("block", key=f"butt18", on_click=click_block,args=[18], use_container_width=True)
-        b19 = st.button("19", key="butt19", on_click=click_start,args=[19], use_container_width=True)
-        b20 = st.button("20", key="butt20", on_click=click_start,args=[20], use_container_width=True)
-        b21 = st.button("serve", key=f"butt21", on_click=click_start,args=[21], use_container_width=True)
+        b19 = st.button("19", key="butt19", on_click=click_att,args=[19], use_container_width=True)
+        b20 = st.button("20", key="butt20", on_click=click_att,args=[20], use_container_width=True)
+        b21 = st.button("serve", key=f"butt21", on_click=click_att,args=[21], use_container_width=True)
 
 
-    save = st.button("Save point", key="save", on_click=click_step, args=[1])
+    confirm = st.button("Confirm point", key="confirm", on_click=click_step, args=[1])
 
 if st.session_state.step == 1:
-    st.info(f"Do you want to save the point?")
-    back = st.button("Back", key="back", on_click=click_step, args=[0])
-    confirm = st.button("Confirm", key="confirm", on_click=click_step, args = [2])
 
+    if st.session_state.point_block != 0:
+        st.info(f"You selected: point on {st.session_state.point_block} block.\nDo you want to save the action?")
+        back = st.button("Back", key="back", on_click=click_step, args=[0])
+        save = st.button("Save", key="save", on_click=click_step, args = [2])
+
+        
+    elif st.session_state.point_att != 0 and st.session_state.point_def !=0:
+        st.info(f"You selected: point from zone {st.session_state.point_att} to zone {st.session_state.point_def}.\nDo you want to save the action?")
+        back = st.button("Back", key="back", on_click=click_step, args=[0])
+        save = st.button("Save", key="save", on_click=click_step, args = [2])
+
+    
+    elif (st.session_state.point_att == 0 and st.session_state.point_def !=0) or (st.session_state.point_att != 0 and st.session_state.point_def ==0) or (st.session_state.point_att == 0 and st.session_state.point_def ==0 and st.session_state.point_block == 0):
+        st.warning("Please go back. You are missing the point selection!")
+        back = st.button("Back", key="back", on_click=click_step, args=[0])
+        
+        
 if st.session_state.step == 2:
+    #method to save the points
+    #reset all the variables:
+    st.session_state.point_att = 0
+    st.session_state.point_def = 0
+    st.session_state.point_block = 0
+
     return_set_page()
 
 

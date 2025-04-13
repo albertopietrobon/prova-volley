@@ -24,7 +24,8 @@
 
 
 
-.st-key-save button{
+.st-key-confirm button{
+    background-color: #bb4b0f;
     margin-top: 10% !important;
 }
 

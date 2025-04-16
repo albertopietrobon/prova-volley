@@ -8,7 +8,7 @@ def load_css(file_path):
     with open(file_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-css_path = pathlib.Path("court.css")
+css_path = pathlib.Path("assets/court.css")
 load_css(css_path)
 
 if 'step' not in st.session_state:

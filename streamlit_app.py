@@ -5,9 +5,10 @@ start_page = st.Page('pages/start_page.py', title='Start')
 game_1 = st.Page('pages/game_1.py', title='Game_1')
 set_page = st.Page('pages/set.py', title='Set')
 court_page = st.Page('pages/court.py', title='Court')
+opp_point = st.Page('pages/opp_point.py', title='Opp_point')
+team_error = st.Page('pages/team_error.py', title='Team_error')
 
-
-pg = st.navigation([start_page,game_1,set_page,court_page], position='sidebar')
+pg = st.navigation([start_page,game_1,set_page,court_page,opp_point,team_error], position='sidebar')
 st.set_page_config(page_title='DV4S')
 
 if "team name" not in st.session_state:

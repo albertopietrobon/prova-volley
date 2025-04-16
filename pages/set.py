@@ -1,49 +1,40 @@
 import streamlit as st
 
-st.title("SET page")
 
-if "att_point" not in st.session_state:
-    st.session_state.att_point=0
+if 'number_set' not in st.session_state:
+    st.session_state.number_set = 1
 
-if "dif_point" not in st.session_state:
-    st.session_state.dif_point=0
+if 'team_point' not in st.session_state:
+    st.session_state.team_point = 0
 
-if "mur_point" not in st.session_state:
-    st.session_state.mur_point=0
+if 'opp_point' not in st.session_state:
+    st.session_state.opp_point = 0
 
-def attack():
-    st.session_state.att_point=1
-    st.session_state.mur_point=0
+if 'prev_point' not in st.session_state:
+    st.session_state.prev_point = 0
 
-def defense():
-    st.session_state.dif_point=1
-    st.session_state.mur_point=0
+st.title(f"SET {st.session_state.number_set}")
 
-def block():
-    st.session_state.mur_point=1
-    st.session_state.att_point=0
-    st.session_state.dif_point=0
+col1,col2,col3 = st.columns(3,gap="small", border=True)
+
+with col1:
+    st.write(st.session_state.team_point)
+with col2:
+    st.write("-")
+with col3:
+    st.write(st.session_state.opp_point, )
+
+point,error = st.columns(2, gap="medium")
+
+with point:
+    point_button = st.button("V", key="point")
+with error:
+    error_button = st.button("X", key="error")
 
 
-st.button("attacco", key="att", on_click=attack)
-st.button("difesa", key="dif", on_click=defense)
-st.button("muro", key="mur", on_click=block)
-save_butt= st.button("SAVE")
 
-if save_butt:
-    if st.session_state.mur_point != 0:
-        st.info("Block")
-        st.session_state.mur_point = 0
-        st.session_state.att_point = 0
-        st.session_state.dif_point = 0
-    elif st.session_state.att_point != 0 and st.session_state.dif_point !=0:
-        st.info("Point on attack")
-        st.session_state.mur_point = 0
-        st.session_state.att_point = 0
-        st.session_state.dif_point = 0
-    elif (st.session_state.att_point == 0 and st.session_state.dif_point !=0) or (st.session_state.att_point != 0 and st.session_state.dif_point ==0) or (st.session_state.att_point == 0 and st.session_state.dif_point ==0 and st.session_state.mur_point == 0):
-        st.warning("Go back! missing selection")
-        st.session_state.mur_point = 0
-        st.session_state.att_point = 0
-        st.session_state.dif_point = 0
+
+
+
+
 
